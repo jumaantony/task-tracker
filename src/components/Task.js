@@ -1,9 +1,10 @@
 import React from 'react' 
 
-const Task = ({ task, onDelete }) => {
+const Task = ({ task, onDelete, onToggle }) => {
     return (
-        <div className='task'>
-            <h3> {task.text} 
+        <div className={`task ${task.reminder ? 'reminder' : ''  }`} 
+            onDoubleClick={() => onToggle(task.id)}>
+            <h3> {task.text}  
                 <span style={{ fontWeight: 'bolder', color: 'red', cursor:'pointer'}} 
                     onClick={() => onDelete(task.id)}> 
                     X 
